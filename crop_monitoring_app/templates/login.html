@@ -1,0 +1,77 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: url('/static/home.jpeg') no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
+        background-color: #06da7b;
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
+        height: 100vh;
+    }
+
+    .login-form {
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .login-form h2 {
+        margin-bottom: 20px;
+    }
+
+    .login-form form {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .login-form button {
+        background-color: #06da7b;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+   
+</style>
+
+<body>
+
+    <div class="text-center " style="margin: 15px; padding: 35px; font-size: 20px;">
+        <h2 style="color: rgb(252, 251, 251);font-size: 45px">LOGIN</h2>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            
+            <input type="text" name="username" placeholder="FARMER ID" required>
+            <br>
+            
+            <input type="password" name="password" placeholder="PASSWORD" required>
+            <br>
+            <input class="btn btn-success" style="margin-right:20px;" type="submit" value="Login">
+        </form>
+        <a style="color: rgb(252, 251, 251);" href="{% url  'home' %}" >Go to Home</a>
+    </div>
+   
+</body>
+
+</html>
+{% endblock %}
+
+

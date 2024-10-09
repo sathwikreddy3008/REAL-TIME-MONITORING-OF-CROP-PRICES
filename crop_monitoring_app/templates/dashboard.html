@@ -1,0 +1,81 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: url('/static/home.jpeg') no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
+        background-color: #06da7b;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; 
+        color: #ffffff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .prediction-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .prediction-buttons button {
+        background-color: #06da7b;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px; 
+    }
+
+    .welcome-message {
+        margin-bottom: 20px;
+            text-align: left; 
+            }
+</style>
+
+<body>
+    <div class="container">
+        <h2 class="welcome-message">Welcome, {{ user.username }}!</h2>
+
+        <div class="prediction-buttons">
+            <form action="{% url 'crop_prediction' %}" method="get">
+                <button type="submit">CROP PREDICTION</button>
+            </form>
+            
+            <a href="{% url 'prices' %}">
+                <button type="button">CROP PRICES</button>
+            
+        </div>
+    </div>
+    
+</body>
+
+</html>
+{% endblock %}

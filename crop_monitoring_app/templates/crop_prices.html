@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Crop Prices</h2>
+  <form method="post" action="{% url 'crop_prices' %}">
+    {% csrf_token %}
+    <ul>
+      {% for form in forms %}
+        <li>{{ form.instance.crop_name }}: {{ form.price }} - {{ form.as_p }}</li>
+      {% endfor %}
+    </ul>
+    <button type="submit">Update Prices</button>
+  </form>
+{% endblock %}
